@@ -9,12 +9,18 @@ for day in day??; do
 	echo
 done
 
+for day in day??; do
+	cd "$day"
+	echo "$day:"
+	time ./.build/release/"$day"
+	cd ..
+	echo
+done
+
 time (
 	for day in day??; do
 		cd "$day"
-		echo "$day:"
-		./.build/release/"$day"
+		./.build/release/"$day" > /dev/null
 		cd ..
-		echo
 	done
 )
